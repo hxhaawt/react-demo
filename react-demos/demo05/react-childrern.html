@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var NotesList = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <ol>
+                {
+                  React.Children.map((this.props.children), function (child) {
+                    return <li>{child}</li>;
+                  })
+                }
+              </ol>
+              <p> {React.Children.count(this.props.children)} 
+                  { /*React.Children.only(this.props.children) */}
+              </p>
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <NotesList>
+          <span>
+            hello
+            <span>hi man</span>
+          </span>
+          <span>world</span>
+        </NotesList>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
+

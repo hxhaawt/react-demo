@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title> React 实例</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+  
+  <style>
+    .box1 {
+      color: blue;
+    }  
+  </style>
+
+  </head>
+  <body>
+
+    <div id="example"></div>
+
+    <script type="text/babel">
+      
+      /*  React 会在指定元素数字后自动添加 px
+          外部注释
+       */
+      var myStyle = {
+         fontSize: 100,
+         color: '#FF0000'
+      };
+
+      var tmp = [
+        <div className="box1">
+          <h2>react 学习</h2>
+          <h3>在模板中插入数组</h3>
+          { /*  内部注释，不能放在外层逗号处 */}
+        </div>,
+        <div className="box1">
+          <div>
+            <p>other div box</p>
+
+            <p>模板的最外层要用，-- 逗号隔开</p>
+            <p>
+              由于 JSX 就是 JavaScript，一些标识符像 class 和 for 不建议作为 XML 属性名。作为替代，React DOM 使用 className 和 htmlFor 来做对应的属性。
+            </p>
+          </div>
+        </div>
+      ];
+      ReactDOM.render(
+        <div>
+          <h1 style = {myStyle}>菜鸟教程</h1>
+          { tmp }
+        </div>,
+
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
